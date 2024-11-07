@@ -1,28 +1,54 @@
 //! This crate provides a `map!` macro that creates a map collection then
 //! inserts key-value pairs. The macro uses std::collections::HashMap.
 
-/// Create a map collection then insert elements.
+/// Create a map collection then insert key-value pairs.
 ///
-/// Examples:
+/// Standard Rust looks like this:
 ///
 /// ```
-/// use map::*;
+/// let mut m = std::collections::HashMap::new();
+/// m.insert(1, 2);
+/// m.insert(3, 4);
+/// ```
 ///
-/// let m = map!("a" => "b", "c" => "d");
+/// The `map!` macro provides this syntax with parentheses:
 ///
+/// ```
+/// # use map::*;
 /// let m = map!(
-///     "a" => "b",
-///     "c" => "d",
+///     (1, 2),
+///     (3, 4),
 /// );
+/// ```
 ///
-/// let m: std::collections::HashMap<i32, i32> = map!(
+/// The `map!` macro provides this syntax with arrows:
+///
+/// ```
+/// # use map::*;
+/// let m = map!(
 ///     1 => 2,
 ///     3 => 4,
 /// );
 /// ```
+///
+/// You can use multiple lines or one line, as you prefer.
+///
+/// You can use trailing commas or not, as you prefer.
+///
 #[allow(unused_macros)]
 #[macro_export]
 macro_rules! map {
+    // Parentheses syntax
+    ( $(( $k:expr, $v:expr )),* $(,)?) => {
+        {
+            let mut m = ::std::collections::HashMap::new();
+            $(
+                m.insert($k, $v);
+            )*
+            m
+        }
+    };
+    // Arrows syntax
     ( $( $k:expr => $v:expr ),* $(,)?) => {
         {
             let mut m = ::std::collections::HashMap::new();
@@ -37,33 +63,75 @@ macro_rules! map {
 #[cfg(test)]
 mod tests {
 
-    #[test]
-    fn test_map_macro_with_numbers_with_one_line_with_trailing_comma() {
-        let x = map!(1 => 2, 3 => 4,);
-        assert_eq!(x.get(&1).unwrap(), &2);
+    mod parentheses_syntax {
+
+        mod one_line {
+
+            #[test]
+            fn trailing_comma() {
+                let x = map!((1, 2), (3, 4),);
+                assert_eq!(x.get(&1).unwrap(), &2);
+            }
+
+            #[test]
+            fn without_trailing_comma() {
+                let x = map!((1, 2), (3, 4));
+                assert_eq!(x.get(&1).unwrap(), &2);
+            }
+        }
+
+        mod multiple_lines {
+
+            #[test]
+            fn with_trailing_comma() {
+                let x = map!((1, 2), (3, 4),);
+                assert_eq!(x.get(&1).unwrap(), &2);
+            }
+
+            #[test]
+            fn without_trailing_comma() {
+                let x = map!((1, 2), (3, 4));
+                assert_eq!(x.get(&1).unwrap(), &2);
+            }
+        }
     }
 
-    #[test]
-    fn test_map_macro_with_one_line_without_trailing_comma() {
-        let x = map!(1 => 2, 3 => 4);
-        assert_eq!(x.get(&1).unwrap(), &2);
-    }
+    mod arrow_syntax {
 
-    #[test]
-    fn test_map_macro_with_multiple_lines_with_trailing_comma() {
-        let x = map!(
-            1 => 2,
-            3 => 4,
-        );
-        assert_eq!(x.get(&1).unwrap(), &2);
-    }
+        mod one_line {
 
-    #[test]
-    fn test_map_macro_with_multiple_lines_without_trailing_comma() {
-        let x = map!(
-            1 => 2,
-            3 => 4
-        );
-        assert_eq!(x.get(&1).unwrap(), &2);
+            #[test]
+            fn with_trailing_comma() {
+                let x = map!(1 => 2, 3 => 4,);
+                assert_eq!(x.get(&1).unwrap(), &2);
+            }
+
+            #[test]
+            fn without_trailing_comma() {
+                let x = map!(1 => 2, 3 => 4);
+                assert_eq!(x.get(&1).unwrap(), &2);
+            }
+        }
+
+        mod multiple_lines {
+
+            #[test]
+            fn with_trailing_comma() {
+                let x = map!(
+                    1 => 2,
+                    3 => 4,
+                );
+                assert_eq!(x.get(&1).unwrap(), &2);
+            }
+
+            #[test]
+            fn without_trailing_comma() {
+                let x = map!(
+                    1 => 2,
+                    3 => 4
+                );
+                assert_eq!(x.get(&1).unwrap(), &2);
+            }
+        }
     }
 }

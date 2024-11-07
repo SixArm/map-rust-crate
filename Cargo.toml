@@ -1,6 +1,6 @@
 [package]
 name = "map"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2021"
 authors = ["Joel Parker Henderson <joel@joelparkerhenderson.com>"]
 description = "This crate provides a `map!` macro that creates a HashMap then inserts key-value pairs."

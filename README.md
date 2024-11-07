@@ -6,20 +6,34 @@ The macro creates a map collection then insert key-value pairs.
 
 The macro uses the Rust standard library HashMap.
 
-Examples:
+Standard Rust looks like this:
 
 ```rust
-use map::*;
+let mut m = std::collections::HashMap::new();
+m.insert(1, 2);
+m.insert(3, 4);
+```
 
-let a = map!("a" => "b", "c" => "d");
+The `map!` macro provides this syntax with parentheses:
 
-let b = map!(
-    "a" => "b", 
-    "c" => "d",
+```rust
+# use map::*;
+let m = map!(
+    (1, 2),
+    (3, 4),
 );
+```
 
-let c: HashMap<i32, i32> = map!(
+The `map!` macro provides this syntax with arrows:
+
+```rust
+# use map::*;
+let m = map!(
     1 => 2,
     3 => 4,
 );
 ```
+
+You can use multiple lines or one line, as you prefer.
+
+You can use trailing commas or not, as you prefer.
