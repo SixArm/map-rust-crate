@@ -1,4 +1,4 @@
-# map! Rust crate
+# map! macros as a Rust crate
 
 This crate provides a macro `map!`.
 
@@ -17,7 +17,6 @@ m.insert(3, 4);
 The `map!` macro provides this syntax with parentheses:
 
 ```rust
-# use map::*;
 let m = map!(
     (1, 2),
     (3, 4),
@@ -27,7 +26,6 @@ let m = map!(
 The `map!` macro provides this syntax with arrows:
 
 ```rust
-# use map::*;
 let m = map!(
     1 => 2,
     3 => 4,
