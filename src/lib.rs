@@ -84,13 +84,19 @@ mod tests {
 
             #[test]
             fn with_trailing_comma() {
-                let x = map!((1, 2), (3, 4),);
+                let x = map!(
+                    (1, 2),
+                    (3, 4),
+                );
                 assert_eq!(x.get(&1).unwrap(), &2);
             }
 
             #[test]
             fn without_trailing_comma() {
-                let x = map!((1, 2), (3, 4));
+                let x = map!(
+                    (1, 2),
+                    (3, 4)
+                );
                 assert_eq!(x.get(&1).unwrap(), &2);
             }
         }
@@ -134,4 +140,5 @@ mod tests {
             }
         }
     }
+
 }
