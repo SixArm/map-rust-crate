@@ -19,24 +19,6 @@ Example with arrow syntax:
 let m = map!(1 => 2, 3 => 4);
 ```
 
-Example with multiple lines and tuple syntax:
-
-```rust
-let m = map!(
-    (1, 2),
-    (3, 4),
-);
-```
-
-Example with multiple lines and arrow syntax:
-
-```rust
-let m = map!(
-    1 => 2,
-    3 => 4,
-);
-```
-
 Equivalent Rust standard code:
 
 ```rust
@@ -61,28 +43,6 @@ Example with arrow syntax:
 ```rust
 let mut m = HashMap::new();
 map_insert!(m, 1 => 2, 3 => 4);
-```
-
-Example with multiple lines and tuple syntax:
-
-```rust
-let mut m = HashMap::new();
-map_insert!(
-    m,
-    (1, 2),
-    (3, 4),
-);
-```
-
-Example with multiple lines and arrow syntax:
-
-```rust
-let mut m = HashMap::new();
-map_insert!(
-    m,
-    1 => 2,
-    3 => 4,
-);
 ```
 
 Equivalent Rust std code with method `insert``:
