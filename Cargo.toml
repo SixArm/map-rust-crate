@@ -1,10 +1,10 @@
 [package]
 name = "map"
-version = "1.1.0"
+version = "1.2.0"
 edition = "2021"
 authors = ["Joel Parker Henderson <joel@joelparkerhenderson.com>"]
-description = "This crate provides a `map!` macro that creates a HashMap then inserts key-value pairs."
+description = "This crate provides the `map!` macro `map_insert!` macro, to create a HashMap collection and insert key-value pairs. Inspired by the `vec!` macro."
 repository = "https://github.com/sixarm/map-macro-rust-crate/"
 license = "MIT OR Apache-2.0 OR GPL-2.0 OR GPL-3.0 OR BSD-3-Clause"
-keywords = ["map", "macro", "hashmap"]
-categories = ["rust-patterns"]
+keywords = ["map", "macro", "insert", "hashmap"]
+categories = ["rust-patterns", "development-tools"]

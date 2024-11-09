@@ -1,10 +1,13 @@
 # map! macro Rust crate
 
-This crate provides the `map!` macro to create a new map collection, 
-then insert key-value pairs. This is inspired by the `vec!` macro.
-See below for equivalent Rust standard library code.
+This crate provides `map!` macros to create map collections and
+insert key-value pairs. This is inspired by the `vec!` macro.
 
-Example with parenthesis syntax:
+## map! macro
+
+Create a new map collection and insert key-value pairs.
+
+Example with tuple syntax:
 
 ```rust
 let m = map!((1, 2), (3, 4));
@@ -16,7 +19,7 @@ Example with arrow syntax:
 let m = map!(1 => 2, 3 => 4);
 ```
 
-Example with tuple syntax and multiple lines:
+Example with multiple lines and tuple syntax:
 
 ```rust
 let m = map!(
@@ -25,10 +28,58 @@ let m = map!(
 );
 ```
 
-Example with arrows and multiple lines:
+Example with multiple lines and arrow syntax:
 
 ```rust
 let m = map!(
+    1 => 2,
+    3 => 4,
+);
+```
+
+Equivalent Rust standard code:
+
+```rust
+let mut m = HashMap::new();
+m.insert(1, 2);
+m.insert(3, 4);
+```
+
+## map_insert! macro
+
+Use an existing map collection and insert key-value pairs.
+
+Example with tuple syntax:
+
+```rust
+let mut m = HashMap::new();
+map_insert!(m, (1, 2), (3, 4));
+```
+
+Example with arrow syntax:
+
+```rust
+let mut m = HashMap::new();
+map_insert!(m, 1 => 2, 3 => 4);
+```
+
+Example with multiple lines and tuple syntax:
+
+```rust
+let mut m = HashMap::new();
+map_insert!(
+    m,
+    (1, 2),
+    (3, 4),
+);
+```
+
+Example with multiple lines and arrow syntax:
+
+```rust
+let mut m = HashMap::new();
+map_insert!(
+    m,
     1 => 2,
     3 => 4,
 );
@@ -40,16 +91,4 @@ Equivalent Rust std code with method `insert``:
 let mut m = HashMap::new();
 m.insert(1, 2);
 m.insert(3, 4);
-```
-
-Equivalent Rust std code with method `from`:
-
-```rust
-let m = HashMap::from([(1, 2), (3, 4)]);
-```
-
-Equivalent Rust std code with method `into`:
-
-```rust
-let m: HashMap<_, _> = [(1, 2), (3, 4)].into();
 ```
