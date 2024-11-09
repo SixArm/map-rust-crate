@@ -1,20 +1,22 @@
-# map! macros as a Rust crate
+# map! macro Rust crate
 
-This crate provides a macro `map!`.
+This crate provides the `map!` macro to create a new map collection, 
+then insert key-value pairs. This is inspired by the `vec!` macro.
+See below for equivalent Rust standard library code.
 
-The macro creates a map collection then insert key-value pairs.
-
-The macro uses the Rust standard library HashMap.
-
-Standard Rust looks like this:
+Example with parenthesis syntax:
 
 ```rust
-let mut m = std::collections::HashMap::new();
-m.insert(1, 2);
-m.insert(3, 4);
+let m = map!((1, 2), (3, 4));
 ```
 
-The `map!` macro provides this syntax with parentheses:
+Example with arrow syntax:
+
+```rust
+let m = map!(1 => 2, 3 => 4);
+```
+
+Example with tuple syntax and multiple lines:
 
 ```rust
 let m = map!(
@@ -23,7 +25,7 @@ let m = map!(
 );
 ```
 
-The `map!` macro provides this syntax with arrows:
+Example with arrows and multiple lines:
 
 ```rust
 let m = map!(
@@ -32,6 +34,22 @@ let m = map!(
 );
 ```
 
-You can use multiple lines or one line, as you prefer.
+Equivalent Rust std code with method `insert``:
 
-You can use trailing commas or not, as you prefer.
+```rust
+let mut m = HashMap::new();
+m.insert(1, 2);
+m.insert(3, 4);
+```
+
+Equivalent Rust std code with method `from`:
+
+```rust
+let m = HashMap::from([(1, 2), (3, 4)]);
+```
+
+Equivalent Rust std code with method `into`:
+
+```rust
+let m: HashMap<_, _> = [(1, 2), (3, 4)].into();
+```
