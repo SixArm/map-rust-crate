@@ -1,6 +1,6 @@
 //! # `map!` macro Rust crate
 //!
-//! This crate provides `map!` macros to create maps collections and
+//! This crate provides `map!` macros to create map collections and
 //! insert key-value pairs. This is inspired by the `vec!` macro.
 
 pub mod map;

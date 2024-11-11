@@ -94,13 +94,19 @@ mod test {
 
             #[test]
             fn trailing_comma() {
-                let x = map!((1, 2), (3, 4),);
+                let x = map!(
+                    (1, 2),
+                    (3, 4),
+                );
                 assert_eq!(x, HashMap::from([(1, 2), (3, 4)]));
             }
 
             #[test]
             fn no_trailing_comma() {
-                let x = map!((1, 2), (3, 4));
+                let x = map!(
+                    (1, 2),
+                    (3, 4)
+                );
                 assert_eq!(x, HashMap::from([(1, 2), (3, 4)]));
             }
         }
@@ -146,4 +152,5 @@ mod test {
             }
         }
     }
+   
 }
