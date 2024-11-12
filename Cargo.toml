@@ -1,6 +1,6 @@
 [package]
 name = "map"
-version = "1.2.0"
+version = "1.3.0"
 edition = "2021"
 authors = ["Joel Parker Henderson <joel@joelparkerhenderson.com>"]
 description = "This crate provides the `map!` macro and `map_insert!` macro, to create a HashMap collection and insert key-value pairs. Inspired by the `vec!` macro."

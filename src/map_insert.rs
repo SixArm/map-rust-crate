@@ -18,7 +18,7 @@
 /// map_insert!(m, 1 => 2, 3 => 4);
 /// ```
 ///
-/// Equivalent Rust std code with method `insert``:
+/// Equivalent Rust std code with method `insert`:
 ///
 /// ```
 /// # use std::collections::HashMap;
@@ -103,14 +103,14 @@ mod test {
 
             #[test]
             fn trailing_comma() {
-                let mut x: std::collections::HashMap<i32, i32> = ::std::collections::HashMap::new();
+                let mut x: HashMap<i32, i32> = ::std::collections::HashMap::new();
                 map_insert!(x, 1 => 2, 3 => 4,);
                 assert_eq!(x, HashMap::from([(1, 2), (3, 4)]));
             }
 
             #[test]
             fn no_trailing_comma() {
-                let mut x: std::collections::HashMap<i32, i32> = ::std::collections::HashMap::new();
+                let mut x: HashMap<i32, i32> = ::std::collections::HashMap::new();
                 map_insert!(x, 1 => 2, 3 => 4);
                 assert_eq!(x, HashMap::from([(1, 2), (3, 4)]));
             }
@@ -121,7 +121,7 @@ mod test {
 
             #[test]
             fn trailing_comma() {
-                let mut x: std::collections::HashMap<i32, i32> = ::std::collections::HashMap::new();
+                let mut x: HashMap<i32, i32> = ::std::collections::HashMap::new();
                 map_insert!(
                     x,
                     1 => 2,
@@ -132,7 +132,7 @@ mod test {
 
             #[test]
             fn no_trailing_comma() {
-                let mut x: std::collections::HashMap<i32, i32> = ::std::collections::HashMap::new();
+                let mut x: HashMap<i32, i32> = ::std::collections::HashMap::new();
                 map_insert!(
                     x,
                     1 => 2,

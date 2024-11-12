@@ -5,3 +5,4 @@
 
 pub mod map;
 pub mod map_insert;
+pub mod map_remove;
