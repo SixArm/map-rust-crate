@@ -1,7 +1,7 @@
 # map! macro Rust crate
 
-This crate provides `map!` macros to create map collections and
-insert key-value pairs. This is inspired by the `vec!` macro.
+This crate provides the `map!` macro and related macros to create map
+collections, insert key-value pairs, and remove them. Inspired by `vec!`.
 
 ## map! macro
 
@@ -45,7 +45,7 @@ let mut m = HashMap::new();
 map_insert!(m, 1 => 2, 3 => 4);
 ```
 
-Equivalent Rust std code with method `insert`:
+Equivalent Rust standard code:
 
 ```rust
 let mut m = HashMap::new();
@@ -64,7 +64,7 @@ let mut m = HashMap::from([(1, 2), (3, 4)]);
 map_remove!(m, &1, &3);
 ```
 
-Equivalent Rust std code with method `remove`:
+Equivalent Rust standard code:
 
 ```rust
 let mut m = HashMap::from([(1, 2), (3, 4)]);

@@ -9,7 +9,7 @@
 /// map_remove!(m, &1, &3);
 /// ```
 ///
-/// Equivalent Rust std code with method `remove`:
+/// Equivalent Rust standard code:
 ///
 /// ```
 /// # use std::collections::HashMap;

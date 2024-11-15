@@ -18,7 +18,7 @@
 /// map_insert!(m, 1 => 2, 3 => 4);
 /// ```
 ///
-/// Equivalent Rust std code with method `insert`:
+/// Equivalent Rust standard code:
 ///
 /// ```
 /// # use std::collections::HashMap;
